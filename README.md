@@ -1,2 +1,4 @@
-kati
-kalo brady 
+# Warehouse management system
+
+Vasilis Papageorgiou
+Georgios Papageorgiou 
