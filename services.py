@@ -1,4 +1,5 @@
 from models import Driver, Worker, Pallet, Shelf, Warehouse
+
 class WarehouseSystem:
     def __init__(self):
         self.drivers = []
@@ -61,3 +62,44 @@ class WarehouseSystem:
         pallet.shelf_id = shelf.shelf_id
         pallet.driver_id = driver.driver_id
         pallet.status = "Stored"
+        
+        
+    #----------shelf--------
+    
+    def init__shelves(self):
+        if not self.shelves:
+           self.shelves.append(Shelf(1,"A1"))
+           self.shelves.append(Shelf(2,"A2"))
+           self.shelves.append(Shelf(3,"B1"))
+    
+    def get_free_shelf(self)-> Shelf|None:
+        for shelf in self.sheves:
+            used=False
+            for p in self.pallets:
+                if p.shelf_id==shelf.shelf_id:
+                 used=True
+                 
+                break
+            
+        if not used:
+         return shelf
+    
+        return None
+     
+    #----------notification---------
+    
+    def notify_driver(self,driver:Driver,message: str)-> None:
+    
+     print(f"Ειδοποίηση προς οδηγό {driver.name}:{message}")
+    
+    
+    #-----------confirmation message---------
+    
+    def confirmation_message(self,message:str)->None:
+    
+       print(f"Μήνυμα επιβεβαίωσης:{message}")
+        
+    
+                   
+    
+                              
