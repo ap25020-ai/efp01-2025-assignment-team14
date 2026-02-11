@@ -52,9 +52,6 @@ def main():
             if not shelf:
                 print("Δεν υπάρχει διαθέσιμο ράφι")
                 continue
-
-            # if not system.drivers:
-            #     print("Δεν υπάρχει οδηγός για ειδοποίηση")
                 
             system.pending_shelf = shelf
             system.pending_driver = driver
