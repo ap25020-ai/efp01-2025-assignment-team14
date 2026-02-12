@@ -60,27 +60,48 @@ def main():
             system.notify_driver(driver, f"Αποθήκευσε παλέτα {pallet.barcode} στο ράφι {shelf.shelf_id}")
 
 
-             ##else:
-            print("Η παλέτα παραμένει σε αναμονή")
-       
-    ##has_date=False
+
+# elif choice == "4":
+            pallet = system.get_waiting_pallets()
+            # if not pallet:
+            #     print("Δεν υπάρχει παλέτα προς επιβεβαίωση")
+            #     continue
+
+            answer = input(f"Η παλέτα {pallet.barcode} αποθηκεύτηκε; (y/n): ")
+            if answer.lower() == "y":
+                system.store_pallet(pallet,  system.pending_shelf,system.pending_driver)
+                system.confirmation_message(f"Η παλέτα {pallet.barcode} αποθηκεύτηκε")
+            # else:
+            #     print("Η παλέτα παραμένει σε αναμονή")
+
+        elif choice == "4":
+            print("\nΑποθηκευμένες Παλέτες:")
+            print("Barcode | Ράφι | Οδηγός")
+            print("------------------------")
+
+            has_data = False
             for pallet in system.pallets:
-                if pallet.status=="Stored":
-                    shelf=next((s for in system .drivres if d.driver_id==pallet.driver-id),None)
-                print(f"{pallet.barcode}|"f"{shelf.kapacity if shelf else΄-΄}}"f"{driver.name ifdriver else:΄-΄}")
-                
-                
-                has-data:True
-        
-    if not has_date:
-       print9("Δεν υπάρχούν αποθηκευμένες παλέτες.")
-       
-       
-    ##else:
-       print('Μη έγκυρη επιλογή.")
-       
-       
-       
-       
-       
-#if__name__==""__main__":
+                if pallet.status == "Stored":
+                    shelf = next(
+                        (s for s in system.shelves if s.shelf_id == pallet.shelf_id),
+                        None)
+                    driver = next(
+                        (d for d in system.drivers if d.driver_id == pallet.driver_id),None)
+
+                    print(f"{pallet.barcode} | "f"{shelf.kapacity if shelf else '-'} | "f"{driver.name if driver else '-'}")
+                    has_data = True
+
+                if not has_data:
+                    print("Δεν υπάρχουν αποθηκευμένες παλέτες.")
+
+            
+        elif choice == "0":
+            print("Έξοδος από το σύστημα. Αντίο!")
+            break
+
+        else:
+            print("Μη έγκυρη επιλογή.")
+
+
+if __name__ == "__main__":
+    main()
