@@ -58,3 +58,29 @@ def main():
             system.pending_pallet = pallet
             driver = system.drivers[0]  # απλή επιλογή πρώτου οδηγού
             system.notify_driver(driver, f"Αποθήκευσε παλέτα {pallet.barcode} στο ράφι {shelf.shelf_id}")
+
+
+             ##else:
+            print("Η παλέτα παραμένει σε αναμονή")
+       
+    ##has_date=False
+            for pallet in system.pallets:
+                if pallet.status=="Stored":
+                    shelf=next((s for in system .drivres if d.driver_id==pallet.driver-id),None)
+                print(f"{pallet.barcode}|"f"{shelf.kapacity if shelf else΄-΄}}"f"{driver.name ifdriver else:΄-΄}")
+                
+                
+                has-data:True
+        
+    if not has_date:
+       print9("Δεν υπάρχούν αποθηκευμένες παλέτες.")
+       
+       
+    ##else:
+       print('Μη έγκυρη επιλογή.")
+       
+       
+       
+       
+       
+#if__name__==""__main__":
