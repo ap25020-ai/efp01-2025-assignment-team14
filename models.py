@@ -42,8 +42,8 @@ class Shelf: # Represents a shelf
         # TODO: αυξήστε τον αριθμό αποθέματος κατά 1
         self.current_kapacity += 1
 
-    def __str__(self) -> str: # String representation of the class session
-        return (f"{self.current_kapacity}/{self.current_kapacity} ")
+    def __str__(self) -> str: # String representation of the class shelf
+        return (f"{self.current_kapacity}/{self.kapacity} ")
     
 class Warehouse: # Represents a warehouse
     def __init__(self, capacity: int, current_capacity: int = 0):
@@ -58,6 +58,6 @@ class Warehouse: # Represents a warehouse
         # TODO: αυξήστε τον αριθμό αποθέματος κατά 1
         self.current_capacity += 1
 
-    def __str__(self) -> str: # String representation of the class session
-        return (f"{self.current_capacity}/{self.current_capacity} ")
+    def __str__(self) -> str: # String representation of the class Warehouse
+        return (f"{self.current_capacity}/{self.capacity} ")
     
